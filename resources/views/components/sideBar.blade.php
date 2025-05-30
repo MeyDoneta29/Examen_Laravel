@@ -40,6 +40,12 @@
               <p>Etudiants</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('evaluation.noter')}}" class="nav-link {{ request()->routeIs('evaluation.noter') ? 'active' : ''}}">
+              <i class="nav-icon bi bi-person-circle"></i>
+              <p>Evaluation</p>
+            </a>
+          </li>
 
         </ul>
         <!--end::Sidebar Menu-->

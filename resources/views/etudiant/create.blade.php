@@ -51,8 +51,8 @@
                                 <div class="row mb-3">
                                     <label for="name" class="col-sm-3 col-form-label">Prénom</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="nom_complet" class="form-control" id="name" />
-                                        @error('nom_complet')
+                                        <input type="text" name="prenom" class="form-control" id="name" />
+                                        @error('prenom')
                                             <small style="color: red">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -60,8 +60,8 @@
                                 <div class="row mb-3">
                                     <label for="name" class="col-sm-3 col-form-label">Nom</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="prenom" class="form-control" id="name" />
-                                        @error('prenom')
+                                        <input type="text" name="nom" class="form-control" id="name" />
+                                        @error('nom')
                                             <small style="color: red">{{ $message }}</small>
                                         @enderror
                                     </div>
