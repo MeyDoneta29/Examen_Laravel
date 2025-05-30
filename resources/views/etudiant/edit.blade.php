@@ -7,13 +7,13 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">Enregistrer un etudiant</h3>
+                    <h3 class="mb-0">Modifier un etudiant</h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Tableau de bord</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('professeur.index') }}">Professeur</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">ajouter</li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Menu</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('Etudiant.index') }}">Etudiant</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">modifier</li>
                     </ol>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <div class="card card-secondary card-outline mb-4">
                         <!--begin::Header-->
                         <div class="card-header">
-                            <div class="card-title">Formulaire d'ajout d'un professeur</div>
+                            <div class="card-title">Formulaire de modification d'un etudiant</div>
                         </div>
 
                         @session('success')
@@ -43,54 +43,52 @@
                         @endsession
                         <!--end::Header-->
                         <!--begin::Form-->
-                        <form action="{{ route('professeur.store') }}" method="POST">
+                        <form action="{{ route('Etudiant.update', $etudiant->id) }}" method="POST">
                             @csrf
                             <!--end::Header-->
                             <!--begin::Body-->
                             <div class="card-body">
                                 <div class="row mb-3">
-                                    <label for="name" class="col-sm-3 col-form-label">Prénom & Nom</label>
+                                    <label for="name" class="col-sm-3 col-form-label">Prénom</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="nom_complet" class="form-control" id="name" />
-                                        @error('nom_complet')
+                                        <input type="text" value="{{$etudiant->prenom}}" name="prenom" class="form-control" id="name" />
+                                        @error('prenom')
                                             <small style="color: red">{{ $message }}</small>
                                         @enderror
                                     </div>
 
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="phone" class="col-sm-3 col-form-label">Téléphone</label>
+                                    <label for="name" class="col-sm-3 col-form-label">Nom</label>
                                     <div class="col-sm-9">
-                                        <input type="number" name="telephone" class="form-control" id="phone" />
-                                        @error('telephone')
+                                        <input type="text" value="{{$etudiant->nom}}" name="nom" class="form-control" id="name" />
+                                        @error('nom')
+                                            <small style="color: red">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
                                             <small style="color: red">{{ $message }}</small>
                                         @enderror
                                     </div>
 
                                 </div>
-
                                 <div class="row mb-3">
-                                    <label for="matiere" class="col-sm-3 col-form-label">Matière</label>
+                                    <label for="phone" class="col-sm-3 col-form-label">Date de naissance</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" name="matiere" id="matiere">
-                                            <option value="">--Selectionnez--</option>
-                                            <option value="PHP">PHP</option>
-                                            <option value="UML">UML</option>
-                                            <option value="LANGUAGE C">LANGUAGE C</option>
-                                            <option value="PROTECTION SI">PROTECTION SI</option>
-                                        </select>
-                                        @error('matiere')
+                                        <input type="date" value="{{$etudiant->date_naissance}}" name="date_naissance" class="form-control" id="phone" />
+                                        @error('date_naissance')
                                             <small style="color: red">{{ $message }}</small>
                                         @enderror
                                     </div>
 
                                 </div>
+
                             </div>
                             <!--end::Body-->
                             <!--begin::Footer-->
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-secondary">Enregistrer</button>
-                                <a href="{{ route('professeur.index') }}" class="btn float-end">Revenir sur la liste</a>
+                                <a href="{{ route('Etudiant.index') }}" class="btn float-end">Revenir sur la liste</a>
                             </div>
                             <!--end::Footer-->
                         </form>
